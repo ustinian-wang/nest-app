@@ -31,3 +31,14 @@
 ![](images/TODO-3.png)
 
 你也可以只解析其中的一个属性
+## @Post
+支持post请求，和@get一样，可以获取参数，不过你需要利用@Body进行解析
+![](images/TODO-4.png)
+![](images/TODO-5.png)
+
+## @HttpCode(code: number)
+
+> 用来设置返回的http状态码
+
+![](images/TODO-6.png)
+![](images/TODO-7.png)
