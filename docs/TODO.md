@@ -54,3 +54,9 @@
 获取查询字符
 ![](images/docs/TODO/IMG-20240823231105571.png)
 ![](images/docs/TODO/IMG-20240823231153805.png)
+
+## create service
+
+> nest g s
+
+ 
