@@ -42,3 +42,15 @@
 
 ![](images/TODO-6.png)
 ![](images/TODO-7.png)
+
+## @Res
+你也可以通过@res拿到一整个相应，自定义返回码和头部等操作
+![](images/TODO-8.png)
+
+## @Param(attr: string)
+可以获取restful上面的url参数，和query还是不一样的
+
+## @Query()
+获取查询字符
+![](images/docs/TODO/IMG-20240823231105571.png)
+![](images/docs/TODO/IMG-20240823231153805.png)

@@ -1,11 +1,11 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Res } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Query, Res } from "@nestjs/common";
 
 @Controller('coffees')
 export class CoffeesController {
   @Get() //标记为get请求
-  findAll(@Res() response){
-    response.status(200).send("this actions returns all coffees")
-    return
+  findAll(@Query() paginationQuery){
+    let {limit, offset} = paginationQuery
+    return `This returns all coffees; limit=${limit}, offset=${offset}`;
   }
 
   @Get(":id")
