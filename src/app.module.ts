@@ -11,7 +11,7 @@ let options = {
     password: "pass123",
     database: "postgres",
     autoLoadEntities: true,
-    synchronize: true
+    synchronize: true//生产环境记得禁用，这个会自动创建表
 }
 @Module({
     imports: [CoffeesModule, TypeOrmModule.forRoot(options)], controllers: [AppController], providers: [AppService],

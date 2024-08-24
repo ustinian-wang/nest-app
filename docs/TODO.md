@@ -220,3 +220,12 @@ db就有对应的数据
 
 ![](images/-20240824-24.png)
 
+### Relationship between different entities
+
+> coffee 和flavor是多对多的关系，一杯咖啡可以有多个风味，所以这里要创建关联
+
+当你新增数据后，就会看到表被自动创建了
+![](images/-20240824-25.png)
+
+
+
