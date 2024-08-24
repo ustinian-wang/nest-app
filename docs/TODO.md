@@ -90,3 +90,20 @@
 ![](images/docs/TODO/IMG-20240824103746438.png)
 
 ![](images/docs/TODO/IMG-20240824103809541.png)
+
+## DTO
+
+### create dto
+
+> nest g class coffees/dto/create-coffee.dto --no-spec
+
+会生成如下的dto
+
+![](images/docs/TODO/IMG-20240824105020056.png)
+然后就可以替换到之前的controller
+![](images/docs/TODO/IMG-20240824105101338.png)
+
+### validate
+
+
+
