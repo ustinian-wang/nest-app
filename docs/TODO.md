@@ -105,5 +105,18 @@
 
 ### validate
 
+> install: `yarn add class-validator class-transformer` 
+
+加上校验管道：
+![](images/-20240824-5.png)
+引入注解对字段进行校验：
+![](images/-20240824-6.png)
+发包如果少了字段，就会出现校验逻辑
+![](images/-20240824-9.png)
+
+对于部分字段的更新，由于update和create是类似的，所以updateDto可以沿用createDto
+![](images/-20240824-10.png)
+
+
 
 
