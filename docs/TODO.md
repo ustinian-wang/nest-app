@@ -228,4 +228,26 @@ db就有对应的数据
 ![](images/-20240824-25.png)
 
 
+## pagination
+
+> 创建分页
+
+`nest g class common/dto/pagination-query.dto --no-spec`
+
+然后你会得到一个用于分页的dto
+
+![](images/-20240824-26.png)
+
+> enableImplicitConversion可以废弃掉@Type注解的使用，通过ts推到字段的类型
+
+![](images/-20240824-27.png)
+
+> 把dto接入service和controller
+
+![](images/-20240824-28.png)
+![](images/-20240824-29.png)
+
+> 然后你就看下分页的用法起作用了
+
+![](images/-20240824-30.png)
 
