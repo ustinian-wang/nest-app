@@ -1,39 +1,47 @@
-import {Injectable} from "@nestjs/common";
+import {Injectable, NotFoundException} from "@nestjs/common";
 import {Coffee} from "./entities/coffee.entities";
+import {InjectRepository} from "@nestjs/typeorm";
+import {Repository} from "typeorm";
+import {CreateCoffeeDto} from "./dto/create-coffee.dto/create-coffee.dto";
+import {UpdateCoffeeDto} from "./dto/update-coffee.dto/update-coffee.dto";
 
 @Injectable()
 export class CoffeesService {
-    private coffees: Coffee[] = [{
-        id: 1, name: "Shipwreck Roast", brand: "Buddy Brew", flavors: ["chocolate", "vanilla"]
-    }, {
-        "id": 2, "name": "test", "brand": "Buddy Brew", "flavors": ["chocolate", "vanilla"]
-    }];
+    //注入orm，这里的语法看起来会实现this.coffeeRepository = xxx
+    constructor(@InjectRepository(Coffee) private readonly coffeeRepository: Repository<Coffee>) {}
+
 
     findAll() {
-        return this.coffees;
+        return this.coffeeRepository.find();
     }
 
-    findOne(id: string) {
-        return this.coffees.find(c => c.id === +id);
-    }
-
-    create(createCoffeeDto: any) {
-        this.coffees.push(createCoffeeDto);
-    }
-
-    update(id: string, updateCoffeeDto: any) {
-        const existingCoffees = this.findOne(id);
-        if (existingCoffees) {
-            // update the existing
-            Object.assign(existingCoffees, updateCoffeeDto);
+    async findOne(id: string) {
+        const coffee = await this.coffeeRepository.findOne(id);
+        if(!coffee){
+            throw new NotFoundException(`Coffee #${id} not found`);
         }
+        return coffee;
     }
 
-    remove(id: string) {
-        const coffeeIndex = this.coffees.findIndex(c => c.id === +id);
-        console.log("jser coffeeIndex", coffeeIndex);
-        if (coffeeIndex >= 0) {
-            this.coffees.splice(coffeeIndex, 1)
+    create(createCoffeeDto: CreateCoffeeDto) {
+        const coffee = this.coffeeRepository.create(createCoffeeDto);
+        return this.coffeeRepository.save(coffee);//save to database
+    }
+
+    async update(id: string, updateCoffeeDto: any) {
+        const coffee = await this.coffeeRepository.preload({
+            id: +id,
+            ...updateCoffeeDto//todo 这个暂时不能换成dto的类型，会有类型报错，但是为什么，不知道~
+        });
+        if(!coffee){
+            throw new NotFoundException(`Coffee #${id} not found`);
         }
+        //save to database
+        return this.coffeeRepository.save(coffee);
+    }
+
+    async remove(id: string) {
+        const coffee = await this.findOne(id);
+        return this.coffeeRepository.remove(coffee);
     }
 }

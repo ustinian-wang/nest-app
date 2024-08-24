@@ -176,3 +176,47 @@ services:
 ```shell
 docker-compose up -d
 ```
+
+
+### TypeOrm
+
+> 选择0.2.45的版本，不然官方教程可能会失效
+
+> 配置连接db的参数
+
+![](images/-20240824-18.png)
+> 重启服务后你会看到如下日志，说明连接成功了
+
+```shell
+[Nest] 24276  - 08/24/2024, 1:05:09 PM     LOG [InstanceLoader] TypeOrmModule dependencies initialized +84ms
+
+```
+
+> 通过注解的方式，把表和实体关联起来
+
+- @PrimaryGeneratedColumn：主键
+- @Column：普通字段名，默认跟随当前key
+- @Column("json", {nullable: true})：将引用类型序列化，比如数组之类的
+![](images/-20240824-19.png)
+
+> 最后把实体注入到module
+
+![](images/-20240824-20.png)
+
+> typeorm可以自动帮你把db的表，账号啥的都创建好，等你进入db的时候，你会发现啥都准备好了
+
+可能是TypeoOrmModule.forRoot的时候synchronize设置导致的
+
+![](images/-20240824-21.png)
+
+> 当你插入一条数据
+
+![](images/-20240824-22.png)
+db就有对应的数据
+
+![](images/-20240824-23.png)
+
+再插入一条又有了
+
+![](images/-20240824-24.png)
+
