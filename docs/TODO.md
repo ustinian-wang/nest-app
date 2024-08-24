@@ -59,4 +59,21 @@
 
 > nest g s
 
- 
+
+## friendly exception
+
+### HttpException
+
+可以通过抛异常等方式，对响应进行处理
+![](images/docs/TODO/IMG-20240824101553462.png)
+![](images/image/TODO-1724465858670.jpeg)
+### NotFoundException
+可以将HttpException处理的404更换为这个子类
+![](images/image/TODO-1724465975661.jpeg)
+### Throw
+抛出错误的情况下，会变成默认的500异常
+![](images/image/TODO-1724466085762.jpeg)
+![](images/image/TODO-1724466092294.jpeg)
+而且服务终端会有错误信息：
+![](images/image/TODO-1724466107564.jpeg)
+
