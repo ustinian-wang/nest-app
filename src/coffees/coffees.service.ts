@@ -23,7 +23,6 @@ export class CoffeesService {
 
     update(id: string, updateCoffeeDto: any) {
         const existingCoffees = this.findOne(id);
-        console.log("jser existingCoffees", existingCoffees);
         if (existingCoffees) {
             // update the existing
             Object.assign(existingCoffees, updateCoffeeDto);

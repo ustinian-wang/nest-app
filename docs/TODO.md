@@ -138,3 +138,16 @@
 
 ![](images/-20240824-14.png)
 ![](images/-20240824-15.png)
+
+#### transform
+
+> 默认情况下，拿到的dto并不是某个类的实例
+
+![](images/-20240824-16.png)
+
+> 可以开启transform:true的方式转成实例
+
+![](images/-20240824-17.png)
+
+> 那么transform还有什么作用么？
+
