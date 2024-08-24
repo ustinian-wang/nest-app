@@ -151,3 +151,28 @@
 
 > 那么transform还有什么作用么？
 
+
+## Postgres
+
+> 接下来要用上数据库，这里选择Postgres，基于docker环境运行
+
+配置docker-compose.yml
+
+```docker
+version: "3"  
+  
+services:  
+    db:  
+        image: postgres  
+        restart: always  
+        ports:  
+            - "5432:5432"  
+        environment:  
+            POSTGRES_PASSWORD: pass123
+```
+
+启动服务
+
+```shell
+docker-compose up -d
+```
