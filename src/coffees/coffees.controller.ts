@@ -49,6 +49,7 @@ export class CoffeesController {
 
   @Patch(":id")
   update(@Param('id') id: string, @Body() body: UpdateCoffeeDto){
+    console.log("jser UpdateCoffeeDto", body);
     return this.coffeesService.update(id, body)
   }
 

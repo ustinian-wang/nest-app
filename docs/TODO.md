@@ -117,6 +117,24 @@
 对于部分字段的更新，由于update和create是类似的，所以updateDto可以沿用createDto
 ![](images/-20240824-10.png)
 
+#### whitelist
+支持白名单校验，即外部传入的多余字段，不会发到web服务内部
 
+> 开启参数
 
+![](images/-20240824-11.png)
 
+> 然后发包添加冗余字段
+
+![](images/-20240824-12.png)
+
+> web内部已经拿不到jser了
+
+![](images/-20240824-13.png)
+
+#### forbidNonWhitelisted
+
+> whitelist搭配forbidNonWhitelisted， 开启参数后，如果传递多了字段，web会报错
+
+![](images/-20240824-14.png)
+![](images/-20240824-15.png)
