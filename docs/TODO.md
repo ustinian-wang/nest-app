@@ -77,3 +77,16 @@
 而且服务终端会有错误信息：
 ![](images/image/TODO-1724466107564.jpeg)
 
+
+## module
+
+### create module
+
+> nest g m [module-name]
+
+
+之前的coffees的controller和service都可以导入到coffee模块里面
+
+![](images/docs/TODO/IMG-20240824103746438.png)
+
+![](images/docs/TODO/IMG-20240824103809541.png)
