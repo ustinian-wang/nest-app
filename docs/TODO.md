@@ -251,3 +251,240 @@ db就有对应的数据
 
 ![](images/-20240824-30.png)
 
+
+## transaction
+
+```typescript
+import { Connection } from "typeorm"
+
+const queryRunner = this.connection.createQueryRunner();
+await queryRunner.connect();
+await queryRunner.startTransaction();
+try{
+	await queryRunner.manager.save(data);
+	await queryRunner.commitTransaction();
+}catch(e){
+	await queryRunner.rollback();
+}finally{
+	await queryRunner.release();
+}
+```
+
+Index
+```typescript
+import {} Column, Entity, Index,PrimaryGeneratedColumn } from 'typeorm';
+@Index(['name', 'type'])
+@Entity()
+export class Event {
+	@PrimaryGeneratedColumn()
+	id: number;
+	@Column()
+	type: string;
+	
+	@Index( )//这里加了索引
+	@Column(
+	name: string;
+	@Column('json')
+	payload: Record<string,any>
+};
+```
+
+## database migration
+
+ > ormconfig.js
+ 
+ 把前面的typeorm配置写道这里来
+
+```javascript
+module.exports = {
+	type: "postgres",  
+	host: "localhost",  
+	port: 5432,  
+	username: "postgres",  
+	password: "pass123",  
+	database: "postgres",  
+	autoLoadEntities: true,  
+	synchronize: true//生产环境记得禁用，这个会自动创建表
+	cli: {//这里可以通过cli迁移数据库
+		migrationDir: "src/migrations"
+	}
+}
+```
+> npx typeorm migration:create -n CoffeeRefactor
+
+会生成一个：1724566043542-CoffeeRefactor.ts这类文件
+
+> npx typeorm migration:run
+
+这里会运行上面生成的文件
+
+## 依赖注入
+
+> @Injectable会把修饰的class当作provider
+
+
+## useClass
+
+```typescript
+providers:[  
+	CoffeesService,  
+	provide: ConfgService,  
+	useClass: process.env,NoDE ENV === 'development'? DevelopmentConfigService : Productionconfigservice,
+]
+```
+## useFactory
+
+
+
+## Dynamic Module
+
+![](images/docs/TODO/IMG-20240825143245110.png)
+
+![](images/docs/TODO/IMG-20240825143334587.png)
+
+
+## Configuration
+
+诸如数据库配置这类信息，通过process.env传递太繁琐，写死在应用内部也不安全，这种就需要通过配置文件解决
+
+> 安装
+
+`yarn install @nestjs/config`
+
+> 创建配置文件.env.xxx
+
+![](images/docs/TODO/IMG-20240825151926494.png)
+![](images/docs/TODO/IMG-20240825151946723.png)
+
+> ConfigModule.forRoot(options)默认情况下会在项目根目录进行查找
+
+options:
+
+```js
+{
+	envFilePath: "./enviroment",//指定配置文件
+	ignoreEnvFile: true,//忽略.env文件
+}
+```
+
+
+### validation
+
+> 某些情况下，你需要对配置文件进行校验，这个时候可以借助第三方包进行检查
+
+> yarn add @type@hapi_joi
+
+![](images/docs/TODO/IMG-20240825152500931.png)
+
+### service
+
+![](images/docs/TODO/IMG-20240825152730001.png)
+
+## @UsePipes
+
+
+## Catch Exception
+
+>nest g filter xxx
+
+![](images/docs/TODO/IMG-20240825153538028.png)
+![](images/docs/TODO/IMG-20240825153548783.png)
+
+
+## Guard
+
+类似拦截器的角色，处理权限，角色，ACL等逻辑
+
+> nest g guard xxx
+
+> 验证请求是否带有api令牌
+![](images/docs/TODO/IMG-20240825154036943.png)
+![](images/docs/TODO/IMG-20240825153854829.png)
+
+ 
+
+### 检查请求访问的路径是否公开
+
+>example 
+
+![](images/docs/TODO/IMG-20240825154229080.png)
+
+> 自定义注解
+
+![](images/docs/TODO/IMG-20240825154316040.png)
+
+![](images/docs/TODO/IMG-20240825154329029.png)
+
+> 守卫里面检查注解
+
+![](images/docs/TODO/IMG-20240825154449416.png)
+![](images/docs/TODO/IMG-20240825154724037.png)
+
+
+## interceptors
+
+> nest g interceptor xxx
+
+![](images/docs/TODO/IMG-20240825154849505.png)
+
+![](images/docs/TODO/IMG-20240825154902306.png)
+
+### 处理超时
+
+![](images/docs/TODO/IMG-20240825155148402.png)
+
+## 自定义管道
+
+> nest g pipe xxx
+
+![](images/docs/TODO/IMG-20240825155401053.png)
+
+![](images/docs/TODO/IMG-20240825155418965.png)
+
+
+## middleware
+
+> nest g middleware
+
+![](images/TODO-10.png)
+
+![](images/TODO-12.png)
+
+## 自定义修饰器
+
+![](images/TODO-13.png)
+
+![](images/TODO-14.png)
+
+## swagger
+
+> yarn add @nestjs/swagger swagger-ui-express
+
+![](images/TODO-17.png)
+
+> 浏览器访问 http://localhost:3000/api/#/ 就可以看到文档了
+
+### cli-nest引入插件
+
+![](images/TODO-18.png)
+
+这样可以在swagger里面看到更详细的信息
+
+### @ApiProperty
+
+![](images/TODO-19.png)
+
+![](images/TODO-20.png)
+
+### @ApiResponse
+
+![](images/TODO-21.png)
+
+![](images/TODO-22.png)
+
+### @ApiTags
+
+![](images/TODO-23.png)
+
+![](images/TODO-24.png)
+
