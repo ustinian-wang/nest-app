@@ -575,9 +575,9 @@ providers:[
 
 ## Dynamic Module
 
-![](images/docs/TODO/IMG-20240825143245110.png)
+![](images/docs/TODO/IMG-20240825143245110.jpg)
 
-![](images/docs/TODO/IMG-20240825143334587.png)
+![](images/docs/TODO/IMG-20240825143334587.jpg)
 
 
 ## Configuration
@@ -590,8 +590,8 @@ providers:[
 
 > 创建配置文件.env.xxx
 
-![](images/docs/TODO/IMG-20240825151926494.png)
-![](images/docs/TODO/IMG-20240825151946723.png)
+![](images/docs/TODO/IMG-20240825151926494.jpg)
+![](images/docs/TODO/IMG-20240825151946723.jpg)
 
 > ConfigModule.forRoot(options)默认情况下会在项目根目录进行查找
 
@@ -611,11 +611,11 @@ options:
 
 > yarn add @type@hapi_joi
 
-![](images/docs/TODO/IMG-20240825152500931.png)
+![](images/docs/TODO/IMG-20240825152500931.jpg)
 
 ### service
 
-![](images/docs/TODO/IMG-20240825152730001.png)
+![](images/docs/TODO/IMG-20240825152730001.jpg)
 
 ## @UsePipes
 
@@ -624,8 +624,8 @@ options:
 
 >nest g filter xxx
 
-![](images/docs/TODO/IMG-20240825153538028.png)
-![](images/docs/TODO/IMG-20240825153548783.png)
+![](images/docs/TODO/IMG-20240825153538028.jpg)
+![](images/docs/TODO/IMG-20240825153548783.jpg)
 
 
 ## Guard
@@ -635,8 +635,8 @@ options:
 > nest g guard xxx
 
 > 验证请求是否带有api令牌
-![](images/docs/TODO/IMG-20240825154036943.png)
-![](images/docs/TODO/IMG-20240825153854829.png)
+![](images/docs/TODO/IMG-20240825154036943.jpg)
+![](images/docs/TODO/IMG-20240825153854829.jpg)
 
  
 
@@ -644,84 +644,84 @@ options:
 
 >example 
 
-![](images/docs/TODO/IMG-20240825154229080.png)
+![](images/docs/TODO/IMG-20240825154229080.jpg)
 
 > 自定义注解
 
-![](images/docs/TODO/IMG-20240825154316040.png)
+![](images/docs/TODO/IMG-20240825154316040.jpg)
 
-![](images/docs/TODO/IMG-20240825154329029.png)
+![](images/docs/TODO/IMG-20240825154329029.jpg)
 
 > 守卫里面检查注解
 
-![](images/docs/TODO/IMG-20240825154449416.png)
-![](images/docs/TODO/IMG-20240825154724037.png)
+![](images/docs/TODO/IMG-20240825154449416.jpg)
+![](images/docs/TODO/IMG-20240825154724037.jpg)
 
 
 ## interceptors
 
 > nest g interceptor xxx
 
-![](images/docs/TODO/IMG-20240825154849505.png)
+![](images/docs/TODO/IMG-20240825154849505.jpg)
 
-![](images/docs/TODO/IMG-20240825154902306.png)
+![](images/docs/TODO/IMG-20240825154902306.jpg)
 
 ### 处理超时
 
-![](images/docs/TODO/IMG-20240825155148402.png)
+![](images/docs/TODO/IMG-20240825155148402.jpg)
 
 ## 自定义管道
 
 > nest g pipe xxx
 
-![](images/docs/TODO/IMG-20240825155401053.png)
+![](images/docs/TODO/IMG-20240825155401053.jpg)
 
-![](images/docs/TODO/IMG-20240825155418965.png)
+![](images/docs/TODO/IMG-20240825155418965.jpg)
 
 
 ## middleware
 
 > nest g middleware
 
-![](images/TODO-10.png)
+![](images/TODO-10.jpg)
 
-![](images/TODO-12.png)
+![](images/TODO-12.jpg)
 
 ## 自定义修饰器
 
-![](images/TODO-13.png)
+![](images/TODO-13.jpg)
 
-![](images/TODO-14.png)
+![](images/TODO-14.jpg)
 
 ## swagger
 
 > yarn add @nestjs/swagger swagger-ui-express
 
-![](images/TODO-17.png)
+![](images/TODO-17.jpg)
 
 > 浏览器访问 http://localhost:3000/api/#/ 就可以看到文档了
 
 ### cli-nest引入插件
 
-![](images/TODO-18.png)
+![](images/TODO-18.jpg)
 
 这样可以在swagger里面看到更详细的信息
 
 ### @ApiProperty
 
-![](images/TODO-19.png)
+![](images/TODO-19.jpg)
 
-![](images/TODO-20.png)
+![](images/TODO-20.jpg)
 
 ### @ApiResponse
 
-![](images/TODO-21.png)
+![](images/TODO-21.jpg)
 
-![](images/TODO-22.png)
+![](images/TODO-22.jpg)
 
 ### @ApiTags
 
-![](images/TODO-23.png)
+![](images/TODO-23.jpg)
 
-![](images/TODO-24.png)
+![](images/TODO-24.jpg)
 
